@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .quiz-container {
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 1;
+            max-width: 400px;
+            height: 60vh;
+            width: 80%;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .btn {
+            background-color: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        .btn:hover {
+            border-color: #ccc;
+        }
+
+        .btn.correct {
+            border-color: green;
+        }
+
+        .btn.incorrect {
+            border-color: red;
+        }
+
+        #submit-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            background-color: #ff9100;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        #submit-btn:hover {
+            background-color: #e68a00;
+        }
+
+        #score-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="video-container">
+        <video src="Mclaren1.mp4" autoplay loop muted></video>
+    </div>
+    <div class="quiz-container">
+        <h1>Get to Know Mclaren</h1>
+        <div id="question-container">
+            <div id="question">Question text</div>
+            <div id="answer-buttons" class="btn-container"></div>
+        </div>
+        <button id="submit-btn" disabled>Next</button>
+        <div id="feedback-container"></div>
+        <div id="final-score-container" style="display: none;"></div>
+        <i id="score-icon" class="fas fa-star"> 0</i>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
